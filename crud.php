@@ -16,6 +16,18 @@ if ($link->query($sql) === TRUE) {
 }
 }
 
+//Login User
+if (strcmp($TYPE, "S") == 0 ) {
+	$NICKNAME = $_GET["NICKNAME"];
+    $PASSWORD = $_GET["PASSWORD"];
+	$sql = "SELECT * FROM USERS WHERE NICKNAME ='" .  $NICKNAME . "' AND " . "PASSWORD='" . $PASSWORD . "'";
+	$result = $link->query($sql);
+if ($result->num_rows > 0) {
+    echo "Login success";
+} else {
+    echo "Login fail";
+}
+}
 
 mysqli_close($link);
 ?>
