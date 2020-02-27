@@ -18,7 +18,7 @@ if ($link->query($sql) === TRUE) {
 }
 }
 
-if (strcmp($TYPE, "SA") == 0 ) {
+if (strcmp($TYPE, "SC") == 0 ) {
 	$sql = "SELECT * FROM NEEDY";
 	$result = $link->query($sql);
 	$row_cnt = $result->num_rows;
@@ -27,6 +27,16 @@ if (strcmp($TYPE, "SA") == 0 ) {
 	}
 }
 
+if (strcmp($TYPE, "SA") == 0 ) {
+	$sql = "SELECT * FROM NEEDY";
+	$result = $link->query($sql);
+	
+	$newArr = array();
+    while ( $db_field = mysqli_fetch_assoc($result) ) {
+    $newArr[] = $db_field;
+     }
+    echo json_encode($newArr);
+}
 
 mysqli_close($link);
 ?>
