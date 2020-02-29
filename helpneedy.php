@@ -21,5 +21,15 @@ if ($link->query($sql) === TRUE) {
     echo "Error: " . $sql . "<br>" . $link->error;
 }
 }
+
+if (strcmp($TYPE, "SC") == 0 ) {
+	$sql = "SELECT * FROM HELP_NEEDY";
+	$result = $link->query($sql);
+	$row_cnt = $result->num_rows;
+	if ($row_cnt >= 0) {
+		echo($row_cnt);
+	}
+}
+
 mysqli_close($link);
 ?>
