@@ -22,6 +22,19 @@ if ($link->query($sql) === TRUE) {
 }
 }
 
+if (strcmp($TYPE, "SU") == 0 ) {
+	$ASSISTANT_NICKNAME = $_GET["ASSISTANT_NICKNAME"];
+	$sql = "SELECT * FROM HELP_NEEDY WHERE ASSISTANT_NICKNAME='" . $ASSISTANT_NICKNAME . "'";
+	$result = $link->query($sql);
+	
+	$newArr = array();
+    while ( $db_field = mysqli_fetch_assoc($result) ) {
+    $newArr[] = $db_field;
+     }
+    echo json_encode($newArr);
+}
+
+
 if (strcmp($TYPE, "SC") == 0 ) {
 	$sql = "SELECT * FROM HELP_NEEDY";
 	$result = $link->query($sql);
