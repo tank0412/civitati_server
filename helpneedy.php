@@ -44,5 +44,17 @@ if (strcmp($TYPE, "SC") == 0 ) {
 	}
 }
 
+if (strcmp($TYPE, "DR") == 0 ) {
+	$ID = $_GET["ID"];
+	$ASSISTANT_NICKNAME = $_GET["ASSISTANT_NICKNAME"];
+	$sql = "DELETE FROM HELP_NEEDY WHERE ID=" . $ID . " AND ASSISTANT_NICKNAME='" . $ASSISTANT_NICKNAME . "'" ;
+if ($link->query($sql) === TRUE) {
+    echo "Record was deleted successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $link->error;
+}
+}
+
+
 mysqli_close($link);
 ?>
