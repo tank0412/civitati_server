@@ -38,5 +38,15 @@ if (strcmp($TYPE, "SA") == 0 ) {
     echo json_encode($newArr);
 }
 
+if (strcmp($TYPE, "DR") == 0 ) {
+	$ID = $_GET["ID"];
+	$sql = "DELETE FROM NEEDY WHERE ID=" . $ID;
+if ($link->query($sql) === TRUE) {
+    echo "Record was deleted successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $link->error;
+}
+}
+
 mysqli_close($link);
 ?>
