@@ -55,6 +55,20 @@ if ($link->query($sql) === TRUE) {
 }
 }
 
+if (strcmp($TYPE, "UR") == 0 ) {
+	$ID = $_GET["ID"];
+	$NEEDY_ID = $_GET["NEEDY_ID"];
+	$HELP_INFO = $_GET["HELP_INFO"];
+	$HELP_DATE = $_GET["HELP_DATE"];
+	
+	$sql = "UPDATE HELP_NEEDY SET NEEDY_ID='". $NEEDY_ID . "'," . "HELP_INFO='" . $HELP_INFO . "'," . "HELP_DATE='" . $HELP_DATE  . "' WHERE ID=" . $ID ;
+if ($link->query($sql) === TRUE) {
+    echo "Record was updated successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $link->error;
+}
+}
+
 
 mysqli_close($link);
 ?>
