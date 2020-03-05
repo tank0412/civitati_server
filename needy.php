@@ -48,5 +48,20 @@ if ($link->query($sql) === TRUE) {
 }
 }
 
+if (strcmp($TYPE, "UR") == 0 ) {
+	$ID = $_GET["ID"];
+	$NAME = $_GET["NAME"];
+	$HELP_REASON = $_GET["HELP_REASON"];
+	$ADDRESS = $_GET["ADDRESS"];
+	$TELEPHONE = $_GET["TELEPHONE"];
+	
+	$sql = "UPDATE NEEDY SET NAME='". $NAME . "'," . "HELP_REASON='" . $HELP_REASON . "'," . "ADDRESS='" . $ADDRESS  . "'," . "TELEPHONE='" . $TELEPHONE  . "' WHERE ID=" . $ID ;
+if ($link->query($sql) === TRUE) {
+    echo "Record was updated successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $link->error;
+}
+}
+
 mysqli_close($link);
 ?>
