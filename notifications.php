@@ -29,5 +29,16 @@ if (strcmp($TYPE, "SU") == 0 ) {
     echo json_encode($newArr);
 }
 
+if (strcmp($TYPE, "DR") == 0 ) {
+	$ID = $_GET["ID"];
+	$USER_NICKNAME = $_GET["USER_NICKNAME"];
+	$sql = "DELETE FROM NOTIFICATIONS WHERE ID=" . $ID . " AND USER_NICKNAME='" . $USER_NICKNAME . "'" ;
+if ($link->query($sql) === TRUE) {
+    echo "Record was deleted successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $link->error;
+}
+}
+
 mysqli_close($link);
 ?>
