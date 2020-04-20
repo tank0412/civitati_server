@@ -54,8 +54,9 @@ if (strcmp($TYPE, "UR") == 0 ) {
 	$HELP_REASON = $_GET["HELP_REASON"];
 	$ADDRESS = $_GET["ADDRESS"];
 	$TELEPHONE = $_GET["TELEPHONE"];
+	$IMAGE = $_GET["IMAGE"];
 	
-	$sql = "UPDATE NEEDY SET NAME='". $NAME . "'," . "HELP_REASON='" . $HELP_REASON . "'," . "ADDRESS='" . $ADDRESS  . "'," . "TELEPHONE='" . $TELEPHONE  . "' WHERE ID=" . $ID ;
+	$sql = "UPDATE NEEDY SET NAME='". $NAME . "'," . "HELP_REASON='" . $HELP_REASON . "'," . "ADDRESS='" . $ADDRESS  . "'," . "TELEPHONE='" . $TELEPHONE  . "'," . "IMAGE='" . $IMAGE  . "' WHERE ID=" . $ID ;
 if ($link->query($sql) === TRUE) {
     echo "Record was updated successfully";
 } else {
