@@ -10,7 +10,8 @@ if (strcmp($TYPE, "I") == 0 ) {
     $REASON = $_GET["HELP_REASON"];
 	$ADDRESS = $_GET["ADDRESS"];
 	$TELEPHONE = $_GET["TELEPHONE"];
-	$sql = "INSERT INTO NEEDY (ID,NAME, HELP_REASON, ADDRESS, TELEPHONE ) VALUES ('" . $ID . "','". $NAME . "','" . $REASON .  "','" . $ADDRESS . "','" . $TELEPHONE . "')";
+	$IMAGE = $_GET["IMAGE"];
+	$sql = "INSERT INTO NEEDY (ID,NAME, HELP_REASON, ADDRESS, TELEPHONE, IMAGE ) VALUES ('" . $ID . "','". $NAME . "','" . $REASON .  "','" . $ADDRESS . "','" . $TELEPHONE . "','" . $IMAGE . "')";
 if ($link->query($sql) === TRUE) {
     echo "New record created successfully";
 } else {
